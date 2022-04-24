@@ -1,0 +1,84 @@
+.AppContainer{
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: 3s;
+  height: 100vh;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  /*width: 1500px !important;*/
+}
+
+header a{
+  font-size: 50px;
+  text-decoration: none;
+  color: white;
+}
+
+ul{
+  display: flex;
+  list-style: none;
+}
+
+header img{
+  font-size: 0;
+  width: 35px;
+  cursor: pointer;
+  margin: 10px 15px 0 0;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  font-size: 30px;
+  color: white;
+}
+
+.AppInner{
+  display: flex;
+}
+
+.AppInner input{
+  margin-left: 100px;
+  width: 160px;
+  height: 50px;
+  outline: none;
+
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.App button{
+  font-family: 'Bebas Neue', cursive;
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 20px 50px;
+  border-radius: 8px;
+  background: linear-gradient(rgb(80, 65, 187) 0%, rgb(111, 48, 213) 100%);
+  border: none;
+/*   transition: .3s; */
+  cursor: pointer;
+  margin: 15px 50px 20px 50px;
+}
+
+.App button:hover{
+  background: linear-gradient(rgb(111, 48, 213) 0%, rgb(80, 65, 187) 100%);
+}
+
+.App span{
+  display: flex;
+  justify-content: center;
+}
