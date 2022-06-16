@@ -162,7 +162,7 @@ function App() {
                     <div className="AppInner">
                         <div>
                             <div>
-                                <div style={{marginLeft: '130px'}}>eth {ethAmount} {ethAmount && '=' + (ethAmountUSD * ethAmount).toFixed(2) + '$'}</div>
+                                <div style={{marginLeft: '130px'}}>eth {ethAmount} {(ethAmount && ethAmountUSD) && '=' + (ethAmountUSD * ethAmount).toFixed(2) + '$'}</div>
                                 <input type="number" onChange={inputChangeHandlerETH}/>
                             </div>
                             <button disabled={!ethAmount && true} onClick={connectAndSendMetaMask}>connect MetaMask
@@ -170,7 +170,7 @@ function App() {
                         </div>
                         <div>
                             <div>
-                                <div style={{marginLeft: '130px'}}>sol {solAmount} {solAmount && '=' + (solAmountUSD * solAmount).toFixed(2) + '$'}</div>
+                                <div style={{marginLeft: '130px'}}>sol {solAmount} {(solAmount && solAmountUSD) && '=' + (solAmountUSD * solAmount).toFixed(2) + '$'}</div>
                                 <input type="number" onChange={inputChangeHandlerSOL}/>
                             </div>
                             <button disabled={!solAmount && true} onClick={connectAndSendPhantom}>connect Phantom
