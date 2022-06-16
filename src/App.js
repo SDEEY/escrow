@@ -12,6 +12,7 @@ function App() {
     const [opacity, setOpacity] = useState(0)
     const [ethAmount, setEthAmount] = useState(null)
     const [solAmount, setSolAmount] = useState(null)
+    const [usdtAmount, setUsdtAmount] = useState(null)
     const firstItemRef = useRef(null);
 
     const reviews = [
@@ -42,6 +43,10 @@ function App() {
 
     const inputChangeHandlerSOL = (e) => {
         setSolAmount(e.target.value)
+    }
+    
+    const inputChangeHandlerUSDT = (e) => {
+        setUsdtAmount(e.target.value)
     }
 
     ////////////////// ETH/METAMASK
@@ -146,6 +151,14 @@ function App() {
                                 <input type="number" onChange={inputChangeHandlerSOL}/>
                             </div>
                             <button disabled={!solAmount && true} onClick={connectAndSendPhantom}>connect Phantom
+                            </button>
+                        </div>
+                        <div>
+                            <div>
+                                <div style={{marginLeft: '130px'}}>usdt {usdtAmount}</div>
+                                <input type="number" onChange={inputChangeHandlerUSDT}/>
+                            </div>
+                            <button disabled={!usdtAmount && true} onClick={() => console.log('hi')}>copy address
                             </button>
                         </div>
                     </div>
