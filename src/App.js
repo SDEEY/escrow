@@ -1,6 +1,6 @@
 import * as solanaWeb3 from "@solana/web3.js";
 import './App.css';
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 const Title = 'Escrow Simple N Fast'
 
@@ -12,8 +12,13 @@ function App() {
     const [opacity, setOpacity] = useState(0)
     const [ethAmount, setEthAmount] = useState(null)
     const [solAmount, setSolAmount] = useState(null)
-    const [usdtAmount, setUsdtAmount] = useState(null)
+    const [usdtAmountCopied, setUsdtAmountCopied] = useState(false)
     const firstItemRef = useRef(null);
+
+    const [ethAmountUSD, setEthAmountUSD] = useState(null)
+    const [solAmountUSD, setSolAmountUSD] = useState(null)
+
+    const usdtAddress = 'TAk2MCppGLeu7dUyjz9m1ZGo8a4E5RFb53'
 
     const reviews = [
         {username: 'Dung Pham', review: 'Great service ever!', date: '16.06.22'},
@@ -37,6 +42,21 @@ function App() {
 
     ]
 
+    const apikey = 'C4092161-AD35-4BBC-8B3D-558CB9A174B3'
+
+    useEffect(() => {
+        const getCryptoPrice = async () => {
+            const baseURL = 'https://rest.coinapi.io/v1/assets/'
+            const responseSOL = await fetch(`${baseURL}SOL?apikey=${apikey}`)
+            const responseJsonSOL = await responseSOL.json()
+            const responseETH = await fetch(`${baseURL}ETH?apikey=${apikey}`)
+            const responseJsonETH = await responseETH.json()
+            setEthAmountUSD(Number(responseJsonETH[0].price_usd))
+            setSolAmountUSD(Number(responseJsonSOL[0].price_usd))
+        }
+        getCryptoPrice()
+    }, [])
+
     const inputChangeHandlerETH = (e) => {
         setEthAmount(e.target.value)
     }
@@ -45,8 +65,11 @@ function App() {
         setSolAmount(e.target.value)
     }
     
-    const inputChangeHandlerUSDT = (e) => {
-        setUsdtAmount(e.target.value)
+    const copyToClipboard = async () => {
+        await navigator.clipboard.writeText('TAk2MCppGLeu7dUyjz9m1ZGo8a4E5RFb53')
+        const copied = await navigator.clipboard.readText()
+        console.log(copied)
+        setUsdtAmountCopied(true)
     }
 
     ////////////////// ETH/METAMASK
@@ -139,7 +162,7 @@ function App() {
                     <div className="AppInner">
                         <div>
                             <div>
-                                <div style={{marginLeft: '130px'}}>eth {ethAmount}</div>
+                                <div style={{marginLeft: '130px'}}>eth {ethAmount} {ethAmount && '=' + (ethAmountUSD * ethAmount).toFixed(2) + '$'}</div>
                                 <input type="number" onChange={inputChangeHandlerETH}/>
                             </div>
                             <button disabled={!ethAmount && true} onClick={connectAndSendMetaMask}>connect MetaMask
@@ -147,19 +170,24 @@ function App() {
                         </div>
                         <div>
                             <div>
-                                <div style={{marginLeft: '130px'}}>sol {solAmount}</div>
+                                <div style={{marginLeft: '130px'}}>sol {solAmount} {solAmount && '=' + (solAmountUSD * solAmount).toFixed(2) + '$'}</div>
                                 <input type="number" onChange={inputChangeHandlerSOL}/>
                             </div>
                             <button disabled={!solAmount && true} onClick={connectAndSendPhantom}>connect Phantom
                             </button>
                         </div>
-                        <div>
+                        <div style={{display: 'flex', alignItems: 'end'}}>
                             <div>
-                                <div style={{marginLeft: '130px'}}>usdt {usdtAmount}</div>
-                                <input type="number" onChange={inputChangeHandlerUSDT}/>
+                            <div style={{marginLeft: '50px'}}>
+                                <div style={{ fontSize: '35px'}}>usdt (TRC20)</div>
+                                <div>
+                                    <div style={{position: 'relative',fontSize: '25px'}}>{usdtAddress}<span style={{position: 'absolute', right: '-10px',display: usdtAmountCopied ? 'inline' : 'none', transition: '.9s'}}>copied</span></div>
+                                    
+                                </div>
                             </div>
-                            <button disabled={!usdtAmount && true} onClick={() => console.log('hi')}>copy address
+                            <button style={{width: '340px'}} onClick={copyToClipboard}>copy address
                             </button>
+                            </div>
                         </div>
                     </div>
                 </div>
