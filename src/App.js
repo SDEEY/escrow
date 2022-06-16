@@ -3,8 +3,10 @@ import './App.css';
 import {useEffect, useRef, useState} from "react";
 
 const Title = 'Escrow Simple N Fast'
+const image = 'https://www.citypng.com/public/uploads/small/31630703755mgh49e6bkjh6jyxpq1dxjiexkxahu5ujzofrzhntuguw4jhllwofw8c2ba7rr8xxakbejdahvrwjttcbjv7ii9gqp4q5tpw4zbym.png'
 
 document.title = Title
+document.getElementById('favicon').setAttribute('href', image)
 
 const address = "D7xLPt19BogkxXd2C2AAhaHUh1VoDLzxdf9ConG2gJWf"
 
