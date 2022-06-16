@@ -15,11 +15,11 @@ function App() {
     const firstItemRef = useRef(null);
 
     const reviews = [
-        {username: 'Dung Pham', review: 'Great service ever!', date: '23.04.22'},
-        {username: 'Kit2 ETH', review: 'Excellent I appreciate!', date: '20.04.22'},
-        {username: 'Hoseah Kiplang\'at Kapketui', review: 'Great customer service', date: '15.04.22'},
-        {username: 'WILLIAM', review: 'Very helpful and speedy support', date: '08.04.22'},
-        {username: 'Adam Mcdadi', review: 'It was great doing business through ESCROW. All steps were very easy to follow. What I like most is the communication with them. They were replying my messeges in a timely manner. They were very professional.', date: '08.04.22'},
+        {username: 'Dung Pham', review: 'Great service ever!', date: '16.06.22'},
+        {username: 'Kit2 ETH', review: 'Excellent I appreciate!', date: '04.06.22'},
+        {username: 'Hoseah Kiplang\'at Kapketui', review: 'Great customer service', date: '15.05.22'},
+        {username: 'WILLIAM', review: 'Very helpful and speedy support', date: '10.05.22'},
+        {username: 'Adam Mcdadi', review: 'It was great doing business through ESCROW. All steps were very easy to follow. What I like most is the communication with them. They were replying my messeges in a timely manner. They were very professional.', date: '12.04.22'},
         {username: 'Joseph Barmakian', review: 'The process was clearly laid out and followed precisely. I have utmost confidence in them and would highly recommend this service.', date: '02.04.22'},
         {username: 'Ron Booth', review: 'Jesse did and excellent job, completely professional and timely.', date: '27.03.22'},
         {username: 'Juli Augusto', review: 'Very helpful!', date: '19.03.22'},
